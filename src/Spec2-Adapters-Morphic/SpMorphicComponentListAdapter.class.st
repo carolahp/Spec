@@ -75,7 +75,7 @@ SpMorphicComponentListAdapter >> newDataSource [
 { #category : 'updating' }
 SpMorphicComponentListAdapter >> refreshList [
 
-	^ self widget refresh
+	^ self application backend defer: [ self widget refresh ]
 ]
 
 { #category : 'factory' }
