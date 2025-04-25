@@ -18,3 +18,8 @@ SpNullApplication class >> reset [
 		DefaultApplication reset ].
 	DefaultApplication := nil
 ]
+
+{ #category : 'settings' }
+SpNullApplication >> codeShowLineNumbers [
+	self flag: 'that should not be here'
+]
