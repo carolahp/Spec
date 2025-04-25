@@ -462,17 +462,17 @@ SpCodePresenter >> hasSyntaxHighlight [
 ]
 
 { #category : 'initialization' }
-SpCodePresenter >> initialize [ 
+SpCodePresenter >> initialize [
 
 	super initialize.
 
 	"Use the default menu"
 	overrideContextMenu := false.
-	
+
 	self withSyntaxHighlight.
 	self withSmartCharacters.
-	self withLineNumbers.
-	
+	self lineNumbers: self application codeShowLineNumbers.
+
 	self registerEventsForStyling.
 	self clearInteractionModel
 ]
