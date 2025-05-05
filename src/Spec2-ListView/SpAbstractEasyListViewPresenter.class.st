@@ -90,6 +90,12 @@ SpAbstractEasyListViewPresenter >> model [
 ]
 
 { #category : 'api' }
+SpAbstractEasyListViewPresenter >> model: aListModel [ 
+	
+	contentView model: aListModel
+]
+
+{ #category : 'api' }
 SpAbstractEasyListViewPresenter >> removeScrollBarStyle: aStyle [
 
 	^ contentView removeScrollBarStyle: aStyle
