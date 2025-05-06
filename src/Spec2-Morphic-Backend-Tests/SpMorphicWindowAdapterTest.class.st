@@ -41,19 +41,15 @@ SpMorphicWindowAdapterTest >> testCanForceNonModalOpenWhenUsingModalWindow [
 { #category : 'tests' }
 SpMorphicWindowAdapterTest >> testOpenWidgetPresenterAppliesStyle [
 
-	| presenter window |
+	| presenter |
 	presenter := SpTextPresenter new.
 	[ window := presenter open ] ensure: [ window close ].
 
-	self
-		assert: presenter adapter widget font
-		equals: StandardFonts defaultFont.
+	self assert: presenter adapter widget font equals: StandardFonts defaultFont.
 
 	presenter := SpTextPresenter new.
 	presenter addStyle: 'code'.
 	[ window := presenter open ] ensure: [ window close ].
 
-	self
-		assert: presenter adapter widget font
-		equals: StandardFonts codeFont
+	self assert: presenter adapter widget font equals: StandardFonts codeFont
 ]
