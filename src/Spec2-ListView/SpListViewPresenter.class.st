@@ -290,6 +290,12 @@ SpListViewPresenter >> registerEvents [
 			self withAdapterDo: [ :anAdapter | anAdapter refreshList ] ]
 ]
 
+{ #category : 'api - selection' }
+SpListViewPresenter >> selectedIndex [
+
+	^ self selection selectedIndex
+]
+
 { #category : 'api' }
 SpListViewPresenter >> setup: aBlock [
 
