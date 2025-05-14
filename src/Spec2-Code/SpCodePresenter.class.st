@@ -687,7 +687,7 @@ SpCodePresenter >> styleScheme: aSymbol [
 SpCodePresenter >> subscribeToSettingsChangesAnnouncements [
 
 	self announcer
-		when: CodeShowLineNumbersChanged
+		when: SpCodeShowLineNumbersChanged
 		send: #showLineNumbers
 		to: self
 ]
