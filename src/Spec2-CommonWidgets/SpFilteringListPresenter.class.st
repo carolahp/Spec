@@ -150,12 +150,14 @@ SpFilteringListPresenter >> headerTitle: aString [
 
 { #category : 'initialization' }
 SpFilteringListPresenter >> initializePresenters [
+	self addStyle: 'filteringList'.
 
 	filterInputPresenter := self newTextInput
-		                        placeholder: 'Filter...';
-		                        yourself.
+		addStyle: 'flat';
+		placeholder: 'Filter...';
+		yourself.
 	listPresenter := self newListToFilter.
-	unfilteredItems := #(  ).
+	unfilteredItems := #().
 	self matchSubstring
 ]
 
@@ -213,7 +215,7 @@ SpFilteringListPresenter >> matchSubstring [
 { #category : 'initialization' }
 SpFilteringListPresenter >> newListToFilter [
 	
-	^ self newList
+	^ self newEasyListView
 ]
 
 { #category : 'transmission' }
