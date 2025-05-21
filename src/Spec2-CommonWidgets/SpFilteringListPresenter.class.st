@@ -65,6 +65,18 @@ SpFilteringListPresenter >> applyFilter: aString [
 	self filterInputPresenter text: aString
 ]
 
+{ #category : 'api' }
+SpFilteringListPresenter >> beMultipleSelection [
+
+	listPresenter beMultipleSelection
+]
+
+{ #category : 'api' }
+SpFilteringListPresenter >> beSingleSelection [
+
+	listPresenter beSingleSelection
+]
+
 { #category : 'initialization' }
 SpFilteringListPresenter >> connectPresenters [
 
@@ -158,7 +170,8 @@ SpFilteringListPresenter >> initializePresenters [
 		yourself.
 	listPresenter := self newListToFilter.
 	unfilteredItems := #().
-	self matchSubstring
+	itemFilterBlock ifNil: [
+		self matchSubstring ]
 ]
 
 { #category : 'transmission' }
@@ -209,7 +222,7 @@ SpFilteringListPresenter >> matchBeginOfString [
 SpFilteringListPresenter >> matchSubstring [
 
 	itemFilterBlock := [ :each :pattern | 
-	              each asLowercase includesSubstring: pattern asLowercase ]
+		each asLowercase includesSubstring: pattern asLowercase ]
 ]
 
 { #category : 'initialization' }
@@ -241,6 +254,15 @@ SpFilteringListPresenter >> reapplyOrResetFilter [
 SpFilteringListPresenter >> resetFilter [
 
 	self applyFilter: ''
+]
+
+{ #category : 'api' }
+SpFilteringListPresenter >> rowPresenterClass: aPresenterClass [
+	"Selecting a presenter class will override #display: and #displayIcon: selectors. 
+	 NOTICE that the #display: will still be used to filter, so you need to define it 
+	 anyway" 
+
+	listPresenter rowPresenterClass: aPresenterClass
 ]
 
 { #category : 'api - selection' }
@@ -289,6 +311,20 @@ SpFilteringListPresenter >> unfilteredItems [
 SpFilteringListPresenter >> unfilteredItems: someItems [
 
 	unfilteredItems := someItems
+]
+
+{ #category : 'api - selection' }
+SpFilteringListPresenter >> unselectAll [
+
+	listPresenter unselectAll
+]
+
+{ #category : 'api' }
+SpFilteringListPresenter >> updateItemsKeepingSelection: aCollection [
+	
+	listPresenter updateItemsKeepingSelection: aCollection.
+	unfilteredItems := aCollection.
+	self reapplyOrResetFilter
 ]
 
 { #category : 'api - events' }
