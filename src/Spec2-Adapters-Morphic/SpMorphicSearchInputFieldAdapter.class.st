@@ -48,5 +48,5 @@ SpMorphicSearchInputFieldAdapter >> buildWidget [
 { #category : 'actions' }
 SpMorphicSearchInputFieldAdapter >> clearText [
 
-	self widgetDo: [ :w | w setTextWith: '' ] 
+	self text: ''
 ]
