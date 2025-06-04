@@ -51,6 +51,12 @@ SpAbstractEasyPresenter >> activateSearchWith: aString [
 ]
 
 { #category : 'api' }
+SpAbstractEasyPresenter >> addStyle: aName [
+
+	contentView addStyle: aName
+]
+
+{ #category : 'api' }
 SpAbstractEasyPresenter >> alternateRowsColor [
 	
 	contentView alternateRowsColor
@@ -247,6 +253,12 @@ SpAbstractEasyPresenter >> registerEvents [
 ]
 
 { #category : 'api' }
+SpAbstractEasyPresenter >> removeStyle: aName [
+
+	contentView removeStyle: aName
+]
+
+{ #category : 'api' }
 SpAbstractEasyPresenter >> searchMatching: aBlock [
 	"Enables search and defines a block to perform a search on the model objects. 
 	 The block receives two parameters: 
@@ -260,6 +272,12 @@ SpAbstractEasyPresenter >> searchMatching: aBlock [
 SpAbstractEasyPresenter >> selectFirst: aString [
 
 	contentView selectFirst: aString
+]
+
+{ #category : 'api' }
+SpAbstractEasyPresenter >> styles [
+
+	^ contentView styles
 ]
 
 { #category : 'api - events' }
