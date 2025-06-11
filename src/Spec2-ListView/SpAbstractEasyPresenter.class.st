@@ -141,6 +141,12 @@ SpAbstractEasyPresenter >> disable [
 	self enabled: false
 ]
 
+{ #category : 'private' }
+SpAbstractEasyPresenter >> disableActivationDuring: aBlock [
+
+    contentView disableActivationDuring: aBlock
+]
+
 { #category : 'api' }
 SpAbstractEasyPresenter >> disableSearch [
 	"Disable searching"
