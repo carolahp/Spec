@@ -230,7 +230,7 @@ SpAbstractTreePresenter >> isActiveOnSingleClick [
 SpAbstractTreePresenter >> isExpanded: aPath [ 
 
 	self withAdapterDo: [ :anAdapter |  
-		^ anAdapter isExpanded: (anAdapter itemAtPath: aPath) ].
+		^ anAdapter isExpanded: aPath ].
 
 	^ false
 ]
