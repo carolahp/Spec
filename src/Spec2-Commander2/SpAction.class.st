@@ -116,7 +116,9 @@ SpAction >> execute [
 	action ifNil: [ ^ self ].
 	self canBeExecuted ifFalse: [ ^ self ].
 
-	action cull: self context
+	action 
+		cull: self context
+		cull: self
 ]
 
 { #category : 'comparing' }
