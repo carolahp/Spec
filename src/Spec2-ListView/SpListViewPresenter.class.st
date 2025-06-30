@@ -23,7 +23,6 @@ SpListViewPresenter class >> example [
 	"This example show the simples list view you can make: A list with a label"
 	
 	self new
-		application: (SpApplication new useBackend: #Gtk);
 		items: self environment allClasses;
 		setup: [ :aPresenter | aPresenter newLabel ];
 		bind: [ :aPresenter :aClass | aPresenter label: aClass name ];
@@ -144,7 +143,7 @@ SpListViewPresenter class >> exampleWithIconsAndMorph [
 	 to your lists."
 
 	| application |
-	application := SpApplication new useBackend: #Gtk.
+	application := SpApplication new.
 	^ self new
 		application: application;
 		items: self environment allClasses;
