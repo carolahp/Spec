@@ -109,13 +109,14 @@ SpPopoverPresenter >> nearWindowLike [
 { #category : 'private' }
 SpPopoverPresenter >> popoverClosed [
 
-	isClosed := true
+	isClosed := true.
+	self application unregisterWindow: self
 	
 ]
 
 { #category : 'private' }
 SpPopoverPresenter >> popoverOpened [
-
+	self application registerWindow: self.
 	isClosed := false
 ]
 
@@ -166,6 +167,7 @@ SpPopoverPresenter >> popupPointingTo: aRectangle [
 	 pointing to `aRectangle`"
 
 	self adapter ifNil: [ self build ].
+	
 	self withAdapterDo: [ :anAdapter |
 		anAdapter popupPointingTo: aRectangle ]
 ]
