@@ -27,6 +27,16 @@ SpAction class >> newName: aName action: aBlock [
 ]
 
 { #category : 'instance creation' }
+SpAction class >> newName: aName iconName: anIconName action: aBlock [
+
+	^ self new 
+		name: aName;
+		iconName: anIconName;
+		action: aBlock;
+		yourself
+]
+
+{ #category : 'instance creation' }
 SpAction class >> newName: aName shortcutKey: aShortcut action: aBlock [
 
 	^ self new 
