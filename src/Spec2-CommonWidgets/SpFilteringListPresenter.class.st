@@ -328,6 +328,11 @@ SpFilteringListPresenter >> updateItemsKeepingSelection: aCollection [
 ]
 
 { #category : 'api - events' }
+SpFilteringListPresenter >> whenFilterChangedDo: aBlock [
+	filterInputPresenter whenTextChangedDo: aBlock
+]
+
+{ #category : 'api - events' }
 SpFilteringListPresenter >> whenSelectionChangedDo: aBlock [
  
 	listPresenter whenSelectionChangedDo: aBlock
