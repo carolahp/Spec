@@ -301,13 +301,13 @@ SpFilteringListPresenter >> sortingBlock: aBlockOrNil [
 	listPresenter sortingBlock: aBlockOrNil
 ]
 
-{ #category : 'accessing' }
+{ #category : 'api' }
 SpFilteringListPresenter >> unfilteredItems [
 
 	^ unfilteredItems
 ]
 
-{ #category : 'accessing' }
+{ #category : 'api' }
 SpFilteringListPresenter >> unfilteredItems: someItems [
 
 	unfilteredItems := someItems
@@ -325,6 +325,11 @@ SpFilteringListPresenter >> updateItemsKeepingSelection: aCollection [
 	listPresenter updateItemsKeepingSelection: aCollection.
 	unfilteredItems := aCollection.
 	self reapplyOrResetFilter
+]
+
+{ #category : 'api - events' }
+SpFilteringListPresenter >> whenFilterChangedDo: aBlock [
+	filterInputPresenter whenTextChangedDo: aBlock
 ]
 
 { #category : 'api - events' }
