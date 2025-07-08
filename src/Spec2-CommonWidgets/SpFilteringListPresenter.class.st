@@ -301,13 +301,13 @@ SpFilteringListPresenter >> sortingBlock: aBlockOrNil [
 	listPresenter sortingBlock: aBlockOrNil
 ]
 
-{ #category : 'accessing' }
+{ #category : 'api' }
 SpFilteringListPresenter >> unfilteredItems [
 
 	^ unfilteredItems
 ]
 
-{ #category : 'accessing' }
+{ #category : 'api' }
 SpFilteringListPresenter >> unfilteredItems: someItems [
 
 	unfilteredItems := someItems
