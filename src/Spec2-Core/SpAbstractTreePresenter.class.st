@@ -368,6 +368,12 @@ SpAbstractTreePresenter >> searchValueOf: item [
 	^ item asString
 ]
 
+{ #category : 'api - selection' }
+SpAbstractTreePresenter >> selectAll [ 
+
+	self selection selectAll
+]
+
 { #category : 'private' }
 SpAbstractTreePresenter >> selectFirst: aString [ 
 	

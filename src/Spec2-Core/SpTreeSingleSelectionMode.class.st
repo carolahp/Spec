@@ -11,6 +11,13 @@ SpTreeSingleSelectionMode >> itemNotFoundAction [
 	self clearSelection
 ]
 
+{ #category : 'selecting' }
+SpTreeSingleSelectionMode >> selectAll [
+	"Do nothing, since single selection mode wont allow for selecting all elements."
+
+	
+]
+
 { #category : 'accessing' }
 SpTreeSingleSelectionMode >> selectPath: aPath [
 	"Check comment in my superclass to know how to use selectPath:"
