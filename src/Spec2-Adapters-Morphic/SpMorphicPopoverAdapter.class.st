@@ -71,27 +71,13 @@ SpMorphicPopoverAdapter >> dismiss [
 ]
 
 { #category : 'api' }
-SpMorphicPopoverAdapter >> popup [
-
-	self widgetDo: [ :w | 
-		self applyStyle: w.
-		w popup.
-		self announceOpened ]
-]
-
-{ #category : 'api' }
-SpMorphicPopoverAdapter >> popupModal [
-
-	self flag: #TODO. "This may not have sense on morphic" 
-	^ self popup
-]
-
-{ #category : 'api' }
-SpMorphicPopoverAdapter >> popupPointingTo: aRectangle [
+SpMorphicPopoverAdapter >> popupModal: aBoolean pointingTo: aRectangle [
 
 	self widgetDo: [ :w |
 		self applyStyle: w.
-		w popupPointingTo: aRectangle.
+		aRectangle
+			ifNotNil: [ w popupPointingTo: aRectangle ]
+			ifNil: [ w popup ].
 		self presenter popoverOpened ]
 ]
 

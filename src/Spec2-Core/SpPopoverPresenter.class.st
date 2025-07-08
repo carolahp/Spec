@@ -122,19 +122,28 @@ SpPopoverPresenter >> popoverOpened [
 
 { #category : 'api' }
 SpPopoverPresenter >> popup [
-
 	"Shows the popover, relative to `SpPopoverPresenter>>#relativeTo`."
 
-	self adapter ifNil: [ self build ].
-	self withAdapterDo: [ :anAdapter | anAdapter popup ]
+	self 
+		popupModal: false 
+		pointingTo: nil
 ]
 
 { #category : 'api' }
 SpPopoverPresenter >> popupModal [
 	"Shows the popover modaly, relative to `SpPopoverPresenter>>#relativeTo`"
+	
+	self popupModal: true pointingTo: nil
+]
+
+{ #category : 'api' }
+SpPopoverPresenter >> popupModal: aBoolean pointingTo: aRectangle [
+	"Shows the popover, relative to `SpPopoverPresenter>>#relativeTo`, and 
+	 pointing to `aRectangle`"
 
 	self adapter ifNil: [ self build ].
-	self withAdapterDo: [ :anAdapter | anAdapter popupModal ]
+	self withAdapterDo: [ :anAdapter |
+		anAdapter popupModal: aBoolean pointingTo: aRectangle ]
 ]
 
 { #category : 'api' }
@@ -156,9 +165,7 @@ SpPopoverPresenter >> popupModalPointingTo: aRectangle [
 	"Shows the popover, relative to `SpPopoverPresenter>>#relativeTo`, and 
 	 pointing to `aRectangle`"
 
-	self adapter ifNil: [ self build ].
-	self withAdapterDo: [ :anAdapter |
-		anAdapter popupModalPointingTo: aRectangle ]
+	self popupModal: true pointingTo: aRectangle
 ]
 
 { #category : 'api' }
@@ -166,10 +173,7 @@ SpPopoverPresenter >> popupPointingTo: aRectangle [
 	"Shows the popover, relative to `SpPopoverPresenter>>#relativeTo`, and 
 	 pointing to `aRectangle`"
 
-	self adapter ifNil: [ self build ].
-	
-	self withAdapterDo: [ :anAdapter |
-		anAdapter popupPointingTo: aRectangle ]
+	self popupModal: false pointingTo: aRectangle
 ]
 
 { #category : 'api' }
