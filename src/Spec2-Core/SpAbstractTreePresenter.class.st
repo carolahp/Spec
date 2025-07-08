@@ -273,7 +273,7 @@ SpAbstractTreePresenter >> itemAtPath: anArray ifAbsent: aBlock [
 { #category : 'api' }
 SpAbstractTreePresenter >> items: aCollection [
 	"Set the roots of a tree. This is a convenience method, synonym of `SpTreePresenter>>#roots:`"
-
+	self unselectAll.
 	self roots: aCollection
 ]
 
