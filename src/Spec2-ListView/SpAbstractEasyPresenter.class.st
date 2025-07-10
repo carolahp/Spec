@@ -287,6 +287,12 @@ SpAbstractEasyPresenter >> styles [
 ]
 
 { #category : 'api - events' }
+SpAbstractEasyPresenter >> whenActionsChangedDo: aBlock [
+
+	contentView whenActionsChangedDo: aBlock
+]
+
+{ #category : 'api - events' }
 SpAbstractEasyPresenter >> whenActivatedDo: aBlock [
 
 	contentView whenActivatedDo: aBlock 
