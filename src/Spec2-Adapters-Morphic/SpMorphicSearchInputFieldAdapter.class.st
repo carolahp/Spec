@@ -41,7 +41,8 @@ SpMorphicSearchInputFieldAdapter >> buildWidget [
 	textMorph
 		layoutPolicy: SpMorphicOverlayLayout new;
 		addMorph: iconsContainer.
-
+ "This brings placeholder morph to the front. This is because it is behind the background morph, so if you change the background color from transparent it hides the placeholder"
+	textMorph privateAddMorph: textMorph submorphs last atIndex: 1.
 	^ textMorph
 ]
 
