@@ -12,8 +12,7 @@ Class {
 		'#isClosed => ObservableSlot',
 		'#presenter => ObservableSlot',
 		'#position',
-		'#relativeTo',
-		'#isTransferFocus'
+		'#relativeTo'
 	],
 	#category : 'Spec2-Core-Widgets',
 	#package : 'Spec2-Core',
@@ -108,6 +107,13 @@ SpPopoverPresenter >> initialize [
 SpPopoverPresenter >> isPopover [
 
 	^ true
+]
+
+{ #category : 'testing' }
+SpPopoverPresenter >> isTopWindow [
+	"for compatibility with windows. But a popover can never be a top window."
+
+	^ false
 ]
 
 { #category : 'testing' }
