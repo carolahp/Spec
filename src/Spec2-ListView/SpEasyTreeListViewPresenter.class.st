@@ -18,6 +18,18 @@ SpEasyTreeListViewPresenter class >> defaultRowPresenterClass [
 	^ SpEasyListRowPresenter
 ]
 
+{ #category : 'examples' }
+SpEasyTreeListViewPresenter class >> example [
+	<sampleInstance>
+	
+	^ self new
+		roots: { Object };
+		children: [ :aClass | aClass subclasses ];
+		displayIcon: [ :aClass | self iconNamed: aClass systemIconName ];
+		display: [ :aClass | aClass name ];
+		open
+]
+
 { #category : 'layout' }
 SpEasyTreeListViewPresenter >> defaultLayout [
 
