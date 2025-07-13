@@ -12,7 +12,8 @@ Class {
 		'#isClosed => ObservableSlot',
 		'#presenter => ObservableSlot',
 		'#position',
-		'#relativeTo'
+		'#relativeTo',
+		'#isTransferFocus'
 	],
 	#category : 'Spec2-Core-Widgets',
 	#package : 'Spec2-Core',
