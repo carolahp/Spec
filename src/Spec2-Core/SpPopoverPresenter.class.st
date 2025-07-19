@@ -12,7 +12,8 @@ Class {
 		'#isClosed => ObservableSlot',
 		'#presenter => ObservableSlot',
 		'#position',
-		'#relativeTo'
+		'#relativeTo',
+		'#isTransferFocus'
 	],
 	#category : 'Spec2-Core-Widgets',
 	#package : 'Spec2-Core',
@@ -86,10 +87,19 @@ SpPopoverPresenter >> dismiss [
 	^ self withAdapterDo: [ :anAdapter | anAdapter dismiss ]
 ]
 
+{ #category : 'api' }
+SpPopoverPresenter >> doNotTransferFocus [
+	"Set the popover to not transfer automatically the focus when showing it. 
+	 This is useful in cases when you have to show things but maybe not interact with them."
+
+	isTransferFocus := false
+]
+
 { #category : 'initialization' }
 SpPopoverPresenter >> initialize [
 
 	super initialize.
+	isTransferFocus := true.
 	isClosed := true.
 	self bePositionBottom
 ]
@@ -98,6 +108,12 @@ SpPopoverPresenter >> initialize [
 SpPopoverPresenter >> isPopover [
 
 	^ true
+]
+
+{ #category : 'testing' }
+SpPopoverPresenter >> isTransferFocus [
+
+	^ isTransferFocus
 ]
 
 { #category : 'private' }
@@ -218,6 +234,14 @@ SpPopoverPresenter >> relativeTo: aPresenter [
 	"Set the presenter that will show the popover (and the popover will be shown relative to it)."
 
 	relativeTo := aPresenter
+]
+
+{ #category : 'api' }
+SpPopoverPresenter >> transferFocus [
+	"Set the popover to transfer automatically the focus when showing it.
+	 This is the default value."
+
+	isTransferFocus := true
 ]
 
 { #category : 'private - traversing' }
