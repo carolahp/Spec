@@ -65,17 +65,15 @@ SpTreeMultipleSelectionMode >> selectPath: aPath [
 
 { #category : 'selection' }
 SpTreeMultipleSelectionMode >> selectPaths: pathArray [
-	(pathArray isEmpty 
-		or: [ 
-			pathArray size = 1 
-			and: [ pathArray first isEmpty] ]) 
-		ifTrue: [ ^ self unselectAll ].
 
-	pathArray
-		do: [ :path | presenter itemAtPath: path ifAbsent: [ ^ self ] ].
-	selection = pathArray ifTrue: [ ^ self ].
-	
-	selection := pathArray
+	| paths |
+	paths := pathArray asArray.
+	(paths isEmpty or: [ paths size = 1 and: [ paths first isEmpty ] ]) ifTrue: [ ^ self unselectAll ].
+
+	paths do: [ :path | presenter itemAtPath: path ifAbsent: [ ^ self ] ].
+	selection = paths ifTrue: [ ^ self ].
+
+	selection := paths
 ]
 
 { #category : 'accessing' }

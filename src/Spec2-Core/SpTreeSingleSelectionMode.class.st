@@ -23,12 +23,11 @@ SpTreeSingleSelectionMode >> selectPath: aPath [
 	"Check comment in my superclass to know how to use selectPath:"
 
 	"If the path is out of range, keep the selection."
-	aPath ifEmpty: [ ^ self unselectAll ].
-	presenter 
-		itemAtPath: aPath 
-		ifAbsent: [ ^ self ].
-	selection := aPath
 
+	aPath ifEmpty: [ ^ self unselectAll ].
+	presenter itemAtPath: aPath ifAbsent: [ ^ self ].
+	selection = aPath ifTrue: [ ^ self ].
+	selection := aPath
 ]
 
 { #category : 'accessing' }
