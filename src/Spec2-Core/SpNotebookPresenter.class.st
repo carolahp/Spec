@@ -130,11 +130,6 @@ SpNotebookPresenter >> resetAllPageContents [
 { #category : 'api' }
 SpNotebookPresenter >> selectPage: aPage [
 	"Selects the page `aPage` from the notebook, switching to show it."
-
-	"(aPage isNotNil 
-		and: [ aPage = self selectedPage 
-		and: [ aPage activePresenter isNotNil ] ]) 
-		ifTrue: [ ^ self ]."
 		
 	selectedPage = aPage ifTrue: [ ^ self ].
 	selectedPage := aPage
