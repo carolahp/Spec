@@ -58,7 +58,8 @@ SpNotebookPresenter >> initialize [
 
 	super initialize.
 	pagesHolder := OrderedCollection new asValueHolder.
-	pagesHolder whenChangedDo: [ self pagesChanged ]
+	self whenSelectedPageChangedDo: [ :aPage | 
+		self withAdapterDo: [ :anAdapter | anAdapter selectPage: aPage ] ]
 ]
 
 { #category : 'private' }
@@ -97,12 +98,6 @@ SpNotebookPresenter >> pages: aCollection [
 	pagesHolder valueChanged: nil
 ]
 
-{ #category : 'private' }
-SpNotebookPresenter >> pagesChanged [
-
-	self changed: #updatePages
-]
-
 { #category : 'api' }
 SpNotebookPresenter >> removeAll [
 	"Remove all pages in notebook"
@@ -136,7 +131,12 @@ SpNotebookPresenter >> resetAllPageContents [
 SpNotebookPresenter >> selectPage: aPage [
 	"Selects the page `aPage` from the notebook, switching to show it."
 
-	aPage = self selectedPage ifTrue: [ ^ self ].
+	"(aPage isNotNil 
+		and: [ aPage = self selectedPage 
+		and: [ aPage activePresenter isNotNil ] ]) 
+		ifTrue: [ ^ self ]."
+		
+	selectedPage = aPage ifTrue: [ ^ self ].
 	selectedPage := aPage
 ]
 
