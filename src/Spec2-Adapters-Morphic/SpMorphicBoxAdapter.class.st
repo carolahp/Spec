@@ -332,8 +332,12 @@ SpMorphicBoxAdapter >> verifyBoxExtent [
 SpMorphicBoxAdapter >> verifyBoxExtentOf: aPanel withChild: childMorph [
 	| width height newPanelWidth newPanelHeight |
 
-	width := childMorph width + (widget borderWidth * 2).
-	height := childMorph height + (widget borderWidth * 2).
+	width := childMorph width.
+	height := childMorph height.
+	startPanel submorphCount + endPanel submorphCount = 0
+		ifTrue: [
+			width := width + (widget borderWidth * 2).
+			height := height + (widget borderWidth * 2) ].
 
 	layout isVertical 
 		ifTrue: [ height := height + aPanel height + aPanel cellInset ]
