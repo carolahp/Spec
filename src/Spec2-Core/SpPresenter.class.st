@@ -437,7 +437,7 @@ SpPresenter >> canTakeKeyboardFocus [
 SpPresenter >> cancelled [
 	self flag: #TODO. "just for dialogs... I wonder if we need it here?"
 
-	self withWindowDo: #cancelled
+	^ self withWindowDo: #cancelled
 ]
 
 { #category : 'TOREMOVE' }
